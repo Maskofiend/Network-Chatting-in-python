@@ -16,7 +16,7 @@ run server.py first and then client.py and it will automatically connect
 
 ## Future Improvements
 
-- Adding usernames
+- Adding usernames ✅
 - support multiple clients
 - Add GUI
 - Message history
