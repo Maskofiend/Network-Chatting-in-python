@@ -17,20 +17,29 @@ def start_server():
 
     current_time = datetime.now().strftime("%H:%M:%S")
     
+    username = conn.recv(1024).decode()
+
+    connection_successful_msg = f"Welcome! {username}"
+
+    conn.send(connection_successful_msg.encode())
+
+
     while True:
+
+
         data = conn.recv(1024)
 
         if data == b'':
             break
         
         message = data.decode()
-        print(f"{current_time} Client: {message}")
+        print(f"{current_time} {username}: {message}")
 
         reply = input("You: ")
 
         conn.send(reply.encode())
     
-        #print("sent message!")
+        
     
 if __name__ == "__main__":
     start_server()

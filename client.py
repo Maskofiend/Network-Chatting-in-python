@@ -10,10 +10,24 @@ def start_connection():
 
     current_time = datetime.now().strftime("%H:%M:%S")
 
-    while True:
-        
+    username = input("Enter your username: ")
 
-        reply = input("You: ")
+    c.send(username.encode())
+
+    server_message = c.recv(1024)
+
+    start_server_message = server_message.decode()
+
+    print(start_server_message)
+    
+    
+
+### Connect! message sent but does not start the enter your username bug
+
+    while True:
+    
+
+        reply = input(f"{username}: ")
 
         c.send(reply.encode())
 
